@@ -1,3 +1,6 @@
+" Don't try to emulate vi
+set nocompatible
+" Add the onedark color package
 packadd! onedark.vim
 
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
@@ -16,10 +19,11 @@ if (empty($TMUX))
   endif
 endif
 
-" Use onedark
+" Use onedark colors
 syntax on
 colorscheme onedark
 
+" Change the leader to ,
 let mapleader=","
 
 set hidden " hides buffers instead of closing
@@ -52,6 +56,8 @@ nmap <silent> <leader>sv :so $MYVIMRC<CR>
 inoremap jk <ESC>
 " Remove trailing whitespace 
 nnoremap <silent> <leader>rw :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
+" turn off search highlight
+nnoremap <leader><space> :nohlsearch<CR>
 
 " The Silver Searcher
 if executable('ag')
