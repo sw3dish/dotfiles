@@ -1,7 +1,14 @@
 " Don't try to emulate vi
 set nocompatible
+
 " Add the onedark color package
 packadd! onedark.vim
+
+" Show the cursor position
+set ruler
+
+" Don't show the intro message when starting
+set shortmess=atI
 
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
 "If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
