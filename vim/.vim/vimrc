@@ -55,7 +55,7 @@ set wildmenu " display all matching files when tab-completing
 set smartcase " ignore case unless there is a capital letter in the search string
 
 set wildignore=*.swp,*.bak,*pyc " ignore files with these extensions
-set wildignore+=*/node_modules/*,*.min.js,*.esm.js,*.legacy.js " ignore node modules and other JS files from search
+set wildignore+=*/node_modules/*,*.min.js,*.esm.js,*.legacy.js,*/user_media/*,*/dist/* " ignore node modules and other JS files from search
 
 " Edit and load vim rc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
@@ -65,6 +65,9 @@ inoremap jk <ESC>
 nnoremap <silent> <leader>rw :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
 " turn off search highlight
 nnoremap <leader><space> :nohlsearch<CR>
+" move vertically by visual line
+nnoremap j gj
+nnoremap k gk
 
 " The Silver Searcher
 if executable('ag')
