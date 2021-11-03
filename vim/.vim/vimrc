@@ -43,6 +43,7 @@ filetype indent on " load filetype-specific indent files
 set number " show line numbers
 set showcmd " show command in bottom bar
 set cursorline " highlight current line
+set colorcolumn=80 " show a ruler at 80 characters
 
 
 set showmatch " highlight matching [{()}]
@@ -55,13 +56,13 @@ set wildmenu " display all matching files when tab-completing
 set smartcase " ignore case unless there is a capital letter in the search string
 
 set wildignore=*.swp,*.bak,*pyc " ignore files with these extensions
-set wildignore+=*/node_modules/*,*.min.js,*.esm.js,*.legacy.js,*/user_media/*,*/dist/* " ignore node modules and other JS files from search
+set wildignore+=*/node_modules/*,*.min.js,*.esm.js,*.legacy.js,*.bundle.js,*/user_media/*,*/dist/* " ignore node modules and other JS files from search
 
 " Edit and load vim rc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
-nmap <silent> <leader>sv :so $MYVIMRC<CR> 
+nmap <silent> <leader>sv :so $MYVIMRC<CR>
 inoremap jk <ESC>
-" Remove trailing whitespace 
+" Remove trailing whitespace
 nnoremap <silent> <leader>rw :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
 " turn off search highlight
 nnoremap <leader><space> :nohlsearch<CR>
@@ -72,5 +73,5 @@ nnoremap k gk
 " The Silver Searcher
 if executable('ag')
   " Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor
+  set grepprg=ag\ --nogroup\ --nocolor\ --column
 endif
