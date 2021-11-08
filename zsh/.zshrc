@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/cburr/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 zmodload zsh/zprof
 
@@ -55,7 +55,7 @@ plugins=(git common-aliases zsh-syntax-highlighting poetry)
 
 # User configuration
 
-export PATH="$PATH:/usr/local/opt/python/libexec/bin:/usr/local/sbin:/usr/local/bin:/Users/sw3dish/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="$PATH:/usr/local/opt/python/libexec/bin:/usr/local/sbin:/usr/local/bin:$HOME/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -101,7 +101,7 @@ if [ -f '/usr/local/bin/google-cloud-sdk/path.zsh.inc' ]; then . '/usr/local/bin
 if [ -f '/usr/local/bin/google-cloud-sdk/completion.zsh.inc' ]; then . '/usr/local/bin/google-cloud-sdk/completion.zsh.inc'; fi
 
 # Created by `userpath` on 2020-11-03 17:58:33
-export PATH="$PATH:/Users/cburr/.local/bin"
+export PATH="$PATH:$HOME/.local/bin"
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
@@ -110,10 +110,9 @@ DOTNET_CLI_TELEMETRY_OPTOUT=1
 
 export PATH="$HOME/.poetry/bin:$PATH"
 
-eval "$(pyenv init -)"
 # Use the exuberant-ctags version of ctags 
 ctags=/usr/local/bin/ctags
 
 # fnm
-export PATH=/Users/cburr/.fnm:$PATH
+export PATH=$HOME/.fnm:$PATH
 eval "`fnm env`"
