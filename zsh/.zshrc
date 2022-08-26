@@ -94,12 +94,6 @@ unsetopt share_history
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/usr/local/bin/google-cloud-sdk/path.zsh.inc' ]; then . '/usr/local/bin/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/usr/local/bin/google-cloud-sdk/completion.zsh.inc' ]; then . '/usr/local/bin/google-cloud-sdk/completion.zsh.inc'; fi
-
 # Created by `userpath` on 2020-11-03 17:58:33
 export PATH="$PATH:$HOME/.local/bin"
 if command -v pyenv 1>/dev/null 2>&1; then
@@ -117,3 +111,8 @@ ctags=/usr/local/bin/ctags
 export PATH=$HOME/.fnm:$PATH
 eval "`fnm env`"
 
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/usr/local/bin/google-cloud-sdk/path.zsh.inc' ]; then . '/usr/local/bin/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/usr/local/bin/google-cloud-sdk/completion.zsh.inc' ]; then . '/usr/local/bin/google-cloud-sdk/completion.zsh.inc'; fi
