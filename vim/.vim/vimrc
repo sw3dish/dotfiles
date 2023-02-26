@@ -57,6 +57,7 @@ set smartcase " ignore case unless there is a capital letter in the search strin
 
 set wildignore=*.swp,*.bak,*pyc " ignore files with these extensions
 set wildignore+=*/node_modules/*,*.min.js,*.esm.js,*.legacy.js,*.bundle.js,*/user_media/*,*/dist/* " ignore node modules and other JS files from search
+set mouse=a
 
 " Edit and load vim rc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
