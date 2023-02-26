@@ -2,11 +2,15 @@ hs.window.animationDuration=0.2
 local hotkey = require "hs.hotkey"
 local grid = require "hs.grid"
 
-grid.setMargins("0x0")
+grid.setMargins("5x5")
 grid.setGrid("6x2")
 
 local mod_resize = {"ctrl", "cmd"}
 local mod_move = {"ctrl", "alt"}
+
+-- Reload config hotkey
+hotkey.bind({'cmd', 'alt', 'ctrl'}, 'R', hs.reload)
+hotkey.bind({'cmd', 'alt', 'ctrl'}, 'C', hs.toggleConsole)
 
 -- Move Window
 -- Vim keys
