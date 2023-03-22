@@ -70,6 +70,9 @@ nnoremap <leader><space> :nohlsearch<CR>
 " move vertically by visual line
 nnoremap j gj
 nnoremap k gk
+" vim-powered terminal in split window
+map <Leader>t :term ++close ++curwin<cr>
+tmap <Leader>t <c-w> :term ++close ++curwin<cr>
 
 " The Silver Searcher
 if executable('ag')
