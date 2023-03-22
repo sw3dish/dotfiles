@@ -28,6 +28,8 @@ endif
 
 " Use onedark colors
 syntax on
+" Use the new Vim regexpengine to speed up syntax highlighting
+set regexpengine=0
 colorscheme onedark
 
 " Change the leader to ,
@@ -39,6 +41,7 @@ set tabstop=4 " number of visual spaces per TAB
 set softtabstop=4 " number of spaces in tab when editing
 set expandtab " tabs are spaces
 filetype indent on " load filetype-specific indent files
+filetype plugin on " load filetype-specific plugin files
 
 set number " show line numbers
 set showcmd " show command in bottom bar
@@ -53,6 +56,7 @@ set incsearch " show search results as you type
 set path=.,** " search through all sub-directories (recursively) when searching for a file
 set wildmenu " display all matching files when tab-completing
 
+set ignorecase
 set smartcase " ignore case unless there is a capital letter in the search string
 
 set wildignore=*.swp,*.bak,*pyc " ignore files with these extensions
