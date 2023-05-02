@@ -84,8 +84,10 @@ nnoremap k gk
 map <Leader>t :term ++close ++curwin<cr>
 tmap <Leader>t <c-w> :term ++close ++curwin<cr>
 
+command! W :write
+
 " The Silver Searcher
 if executable('ag')
   " Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor\ --column
+  set grepprg=ag\ --nogroup\ --nocolor\ --column\ --hidden
 endif
