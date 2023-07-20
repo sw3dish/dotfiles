@@ -35,7 +35,7 @@ defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
 defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
 
 # When saving a new document, open the home directory in the fileviewer dialog
-defaults write NSGlobalDomain "NSDocumentSaveNewDocumentsToCloud" -bool "false" 
+defaults write NSGlobalDomain "NSDocumentSaveNewDocumentsToCloud" -bool "false"
 
 # Disable automatic capitalization as it’s annoying when typing code
 defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
@@ -49,6 +49,12 @@ defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false
 # Disable smart quotes as they’re annoying when typing code
 defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 
+# Disable the MacOS crash reporter
+defaults write com.apple.CrashReporter DialogType none
+
+# Dark mode
+defaults write -g NSRequiresAquaSystemAppearance -bool true
+
 ###############################################################################
 # Screen                                                                      #
 ###############################################################################
@@ -57,7 +63,7 @@ defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 defaults write com.apple.screensaver askForPassword -int 1
 defaults write com.apple.screensaver askForPasswordDelay -int 0
 
-# Save screenshots to $HOME/Screenshots 
+# Save screenshots to $HOME/Screenshots
 defaults write com.apple.screencapture location -string "${HOME}/Screenshots"
 
 # Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
@@ -84,6 +90,15 @@ defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
 # Finder: hide warning when changing a file extension
 defaults write com.apple.finder "FXEnableExtensionChangeWarning" -bool "false"
+
+# Finder: set default folder view to list view
+defaults write com.apple.finder "FXPreferredViewStyle" -string "Clmv"
+
+# Finder: display full path as window title
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+
+defaults write com.apple.finder ShowStatusBar -bool true
+defaults write com.apple.finder ShowTabBar -bool true
 
 ###############################################################################
 # Dock, Dashboard, and hot corners                                            #
@@ -121,6 +136,19 @@ defaults write com.apple.dock "mru-spaces" -bool "false"
 defaults write com.apple.dock wvous-tl-corner -int 13
 defaults write com.apple.dock wvous-tl-modifier -int 0
 
+# Switch to space
+defaults write -g AppleSpacesSwitchOnActivate -bool true
+
+# Disable transparency in the menu bar
+defaults write com.apple.universalaccess reduceTransparency -bool true
+
+###############################################################################
+# Safari					                                                  #
+###############################################################################
+
+# Show full URL in search bar
+defaults write com.apple.safari "ShowFullURLInSmartSearchField" -bool "true" && killall Safari
+
 ###############################################################################
 # Kill affected applications                                                  #
 ###############################################################################
@@ -128,6 +156,7 @@ defaults write com.apple.dock wvous-tl-modifier -int 0
 for app in 	"cfprefsd" \
 	"Dock" \
 	"Finder" \
+	"Safari" \
     "SystemUIServer" \
 	"Terminal";  do
 	killall "${app}" &> /dev/null
