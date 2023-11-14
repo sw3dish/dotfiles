@@ -62,10 +62,16 @@ set smartcase " ignore case unless there is a capital letter in the search strin
 set wildignore=*.swp,*.bak,*pyc " ignore files with these extensions
 " ignore node modules and other JS files from search
 set wildignore+=*/node_modules/*,*.min.js,*.esm.js,*.legacy.js,*.bundle.js,*/user_media/*,*/dist/*
+" ignore contents of Elixir deps folder
+set wildignore+=*/deps/*,*/_build*
 set foldmethod=syntax " fold based on syntax
 set foldlevelstart=99 " open files with all folds open
 
-set mouse=a " enable mouse scrolling to stop iTerm from doing weird things with the window
+set mouse= " disable all mouse movement 
+set ttymouse=
+
+let g:netrw_liststyle = 3  " Tree view for netrw
+let g:netrw_banner = 0 " Remove netrw directory banner
 
 " Edit and load vim rc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
@@ -83,6 +89,8 @@ nnoremap k gk
 " vim-powered terminal in split window
 map <Leader>t :term ++close ++curwin<cr>
 tmap <Leader>t <c-w> :term ++close ++curwin<cr>
+
+nnoremap <Leader><BS> <c-6>
 
 command! W :write
 
