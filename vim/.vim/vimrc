@@ -63,7 +63,7 @@ set wildignore=*.swp,*.bak,*pyc " ignore files with these extensions
 " ignore node modules and other JS files from search
 set wildignore+=*/node_modules/*,*.min.js,*.esm.js,*.legacy.js,*.bundle.js,*/user_media/*,*/dist/*
 " ignore contents of Elixir deps folder
-set wildignore+=*/deps/*,*/_build*
+set wildignore+=*/deps,*/_build*
 set foldmethod=syntax " fold based on syntax
 set foldlevelstart=99 " open files with all folds open
 
