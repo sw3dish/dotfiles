@@ -106,7 +106,6 @@ export PATH="$HOME/.poetry/bin:$PATH"
 
 # Use the exuberant-ctags version of ctags 
 ctags=/usr/local/bin/ctags
-
 # fnm
 export PATH=$HOME/.fnm:$PATH
 eval "`fnm env`"
@@ -117,10 +116,12 @@ if [ -f '/usr/local/bin/google-cloud-sdk/path.zsh.inc' ]; then . '/usr/local/bin
 # The next line enables shell command completion for gcloud.
 if [ -f '/usr/local/bin/google-cloud-sdk/completion.zsh.inc' ]; then . '/usr/local/bin/google-cloud-sdk/completion.zsh.inc'; fi
 
-. "$HOME/.asdf/asdf.sh"
+# ASDF
+export ASDF_DATA_DIR=$HOME/.asdf
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
 # append completions to fpath
-fpath=(${ASDF_DIR}/completions $fpath)
+fpath=(${ASDF_DIR:-$HOME/.asdf}/completions $fpath)
 # initialise completions with ZSH's compinit
 autoload -Uz compinit && compinit
 
