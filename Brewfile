@@ -1,5 +1,7 @@
+brew "inetutils"
 brew "coreutils"
 brew "wget"
 brew "curl"
 brew "stow"
 brew "pyenv"
+brew "ag"

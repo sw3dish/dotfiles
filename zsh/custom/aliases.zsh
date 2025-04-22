@@ -1,0 +1,1 @@
+alias gship="gaa && gc"

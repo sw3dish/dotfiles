@@ -96,9 +96,9 @@ export LSCOLORS=GxFxCxDxBxegedabagaced
 
 # Created by `userpath` on 2020-11-03 17:58:33
 export PATH="$PATH:$HOME/.local/bin"
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 
 DOTNET_CLI_TELEMETRY_OPTOUT=1
 
@@ -123,3 +123,15 @@ if [ -f '/usr/local/bin/google-cloud-sdk/completion.zsh.inc' ]; then . '/usr/loc
 fpath=(${ASDF_DIR}/completions $fpath)
 # initialise completions with ZSH's compinit
 autoload -Uz compinit && compinit
+
+# fnm
+export PATH="$HOME/Library/Application Support/fnm:$PATH"
+eval "`fnm env`"
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /opt/homebrew/bin/terragrunt terragrunt
+export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
