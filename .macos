@@ -132,9 +132,9 @@ defaults write com.apple.dock "mru-spaces" -bool "false"
 # 11: Launchpad
 # 12: Notification Center
 # 13: Lock Screen
-# Top left screen corner → Lock Screen
-defaults write com.apple.dock wvous-tl-corner -int 13
-defaults write com.apple.dock wvous-tl-modifier -int 0
+# Bottom right screen corner → Lock Screen
+defaults write com.apple.dock wvous-br-corner -int 13
+defaults write com.apple.dock wvous-br-modifier -int 0
 
 # Switch to space
 defaults write -g AppleSpacesSwitchOnActivate -bool true
@@ -150,6 +150,16 @@ defaults write com.apple.universalaccess reduceTransparency -bool true
 defaults write com.apple.safari "ShowFullURLInSmartSearchField" -bool "true" && killall Safari
 
 ###############################################################################
+# VSCode/Cursor					                                                  #
+###############################################################################
+
+defaults write "$(osascript -e 'id of app "Cursor"')" ApplePressAndHoldEnabled -bool false
+defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false              # For VS Code
+defaults write com.microsoft.VSCodeInsiders ApplePressAndHoldEnabled -bool false      # For VS Code Insider
+defaults write com.vscodium ApplePressAndHoldEnabled -bool false                      # For VS Codium
+defaults write com.microsoft.VSCodeExploration ApplePressAndHoldEnabled -bool false   # For VS Codium Exploration users
+
+###############################################################################
 # Kill affected applications                                                  #
 ###############################################################################
 
@@ -158,7 +168,12 @@ for app in 	"cfprefsd" \
 	"Finder" \
 	"Safari" \
     "SystemUIServer" \
-	"Terminal";  do
+	"Terminal" \
+	"Cursor" \
+	"VSCode" \
+	"VSCodeInsiders" \
+	"VSCodium" \
+	"VSCodeExploration";  do
 	killall "${app}" &> /dev/null
 done
 echo "Done. Note that some of these changes require a logout/restart to take effect."
